@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app-deploy       # 변경 nginx-deploy => app-deply
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: webui
+  template:
+    metadata:
+      labels:
+        app: webui
+    spec:
+      containers:
+      - name: web        # 변경 nginx-container => web
+        image: nginx:1.14
+        ports:
+        - containerPort: 80

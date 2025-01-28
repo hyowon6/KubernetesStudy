@@ -1,0 +1,30 @@
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: prodns
+
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: newweb
+  namespace: prodns
+spec:
+  containers:
+  - name: newweb-container
+    image: hyowonng/mynginx
+    ports:
+    - containerPort: 80
+      protocol: TCP
+    resources:
+      requests:
+        memory: 500Mi
+        cpu: 200m
+      limits:
+        memory: 1Gi
+        cpu: 1
+    env:
+    - name: DB
+      value: mydb
+

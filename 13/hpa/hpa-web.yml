@@ -1,0 +1,14 @@
+apiVersion: autoscaling/v1
+kind: HorizontalPodAutoscaler
+metadata:
+  name: hpa-web
+spec:
+  maxReplicas: 10
+  minReplicas: 1 # 한 개에서 점점 늘려감
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: deploy-web
+  targetCPUUtilizationPercentage: 50 # 넘어가면
+
+

@@ -1,0 +1,26 @@
+---
+# Deployment(POD x 2)
+kind: Deployment 
+apiVersion: apps/v1 
+metadata: 
+  name: mainui-stable 
+spec: 
+  replicas: 2
+  selector: 
+    matchLabels:
+      # 조건
+      app: mainui 
+      version: stable 
+  template: 
+    metadata: 
+      # 전체 
+      name: mainui-pod  
+      labels: 
+        app: mainui
+        version: stable 
+    spec: 
+      containers: 
+      - name: mainui-container 
+        image: nginx:1.14 
+        ports: 
+        - containerPort: 80

@@ -1,0 +1,15 @@
+---
+kind: Service 
+apiVersion: v1 
+metadata: 
+  name: mainui 
+spec: 
+  type: ClusterIP
+  # 안 쓰면 자동 할당
+  # clusterIP: 10.100.10.10
+  selector: 
+    app: mainui 
+  ports: 
+  - port: 80
+    targetPort: 80
+

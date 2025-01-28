@@ -1,0 +1,6 @@
+# kubectl create namespace prodns --dry-run=client -o yaml
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: prodns
+
